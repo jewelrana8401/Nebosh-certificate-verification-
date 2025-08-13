@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.step {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 3px solid #ccc;
+    font-size: 14px;
+}
+
+.step.active {
+    font-weight: bold;
+    color: #0054a5;
+    border-bottom: 3px solid #0054a5;
+}
+
+h2 {
+    color: #222;
+    margin-top: 0;
+}
+
+p {
+    color: #444;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.checkbox-container {
+    display: block;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.btn-container {
+    text-align: right;
+}
+
+button {
+    background: #0054a5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
