@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBOSH Verification - Step 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="assets/nebosh-logo.png" alt="nebosh logo">
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="step">1 Disclaimer</div>
+        <div class="step">2 Your Details</div>
+        <div class="step active">3 Learner Details</div>
+        <div class="step">4 Finished</div>
+    </div>
+
+    <!-- Form -->
+    <h2>Learner Details</h2>
+    <form id="learnerDetailsForm">
+        <label for="learnerName">Learner's Full Name *</label>
+        <input type="text" id="learnerName" name="learnerName" required>
+
+        <label for="learnerID">Learner Number / Certificate Number *</label>
+        <input type="text" id="learnerID" name="learnerID" required>
+
+        <label for="issueDate">Certificate Issue Date *</label>
+        <input type="date" id="issueDate" name="issueDate" required>
+
+        <div class="btn-container">
+            <button type="button" onclick="goBack()">Back</button>
+            <button type="submit">Next</button>
+        </div>
+    </form>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function goBack() {
+        window.location.href = "step2.html"; // Back to Step 2
+    }
+
+    document.getElementById('learnerDetailsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Save learner data to localStorage
+        localStorage.setItem('learnerName', document.getElementById('learnerName').value);
+        localStorage.setItem('learnerID', document.getElementById('learnerID').value);
+        localStorage.setItem('issueDate', document.getElementById('issueDate').value);
+
+        // Go to Step 4 (Finished)
+        window.location.href = "finished.html";
+    });
+</script>
+
+</body>
+</html>
