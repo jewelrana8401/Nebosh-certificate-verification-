@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><img src="assets/nebosh-logo.png" alt="nebosh logo" /></div>
+    <h2>Request Submitted</h2>
+    <p>Your verification request has been submitted successfully.</p>
+    <p id="ref"></p>
+    <div class="btn-container">
+      <a href="index.html"><button type="button">Start a new request</button></a>
+    </div>
+  </div>
+  <script>
+    const url = new URL(window.location.href);
+    const ref = url.searchParams.get('ref');
+    if (ref) { document.getElementById('ref').textContent = 'Reference ID: #' + ref; }
+    // Clear localStorage after successful submission
+    localStorage.clear();
+  </script>
+</body>
+</html>
