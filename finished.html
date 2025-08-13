@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEBOSH Verification – Finished</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="logo"><img src="assets/nebosh-logo.png" alt="nebosh logo" /></div>
+
+    <div class="progress-bar">
+      <div class="step">1 Disclaimer</div>
+      <div class="step">2 Your Details</div>
+      <div class="step">3 Learner Details</div>
+      <div class="step active">4 Finished</div>
+    </div>
+
+    <h2>Review & Submit</h2>
+    <p>Please review the details below. If everything looks correct, click <strong>Submit</strong>.</p>
+
+    <div id="review" style="background:#f5f7fb;border:1px solid #e3e7ef;border-radius:8px;padding:16px;margin:18px 0"></div>
+
+    <form id="submitForm" method="post" action="process.php">
+      <!-- Hidden fields populated from localStorage before submit -->
+      <input type="hidden" name="name" id="hidName" />
+      <input type="hidden" name="organisation" id="hidOrg" />
+      <input type="hidden" name="email" id="hidEmail" />
+      <input type="hidden" name="learnerName" id="hidLearnerName" />
+      <input type="hidden" name="learnerID" id="hidLearnerID" />
+      <input type="hidden" name="issueDate" id="hidIssueDate" />
+
+      <div class="btn-container">
+        <button type="button" onclick="goBack()">Back</button>
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function goBack(){ window.location.href = "step3.html"; }
+
+    // Pull data from localStorage and show a review table
+    const data = {
+      name: localStorage.getItem('name') || '',
+      organisation: localStorage.getItem('organisation') || '',
+      email: localStorage.getItem('email') || '',
+      learnerName: localStorage.getItem('learnerName') || '',
+      learnerID: localStorage.getItem('learnerID') || '',
+      issueDate: localStorage.getItem('issueDate') || ''
+    };
+
+    const reviewDiv = document.getElementById('review');
+    reviewDiv.innerHTML = `
+      <table style="width:100%;border-collapse:collapse">
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd;width:35%">Your Name</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.name}</td></tr>
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Organisation</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.organisation}</td></tr>
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Email</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.email}</td></tr>
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Learner Name</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.learnerName}</td></tr>
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Learner / Certificate No.</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.learnerID}</td></tr>
+        <tr><th style="text-align:left;padding:8px;border-bottom:1px solid #ddd">Issue Date</th><td style="padding:8px;border-bottom:1px solid #ddd">${data.issueDate}</td></tr>
+      </table>
+    `;
+
+    // Fill hidden fields so PHP receives sanitized server-side copies
+    document.getElementById('hidName').value = data.name;
+    document.getElementById('hidOrg').value = data.organisation;
+    document.getElementById('hidEmail').value = data.email;
+    document.getElementById('hidLearnerName').value = data.learnerName;
+    document.getElementById('hidLearnerID').value = data.learnerID;
+    document.getElementById('hidIssueDate').value = data.issueDate;
+  </script>
+</body>
+</html>
