@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBOSH Verification - Step 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="assets/nebosh-logo.png" alt="nebosh logo">
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="step">1 Disclaimer</div>
+        <div class="step active">2 Your Details</div>
+        <div class="step">3 Learner Details</div>
+        <div class="step">4 Finished</div>
+    </div>
+
+    <!-- Form -->
+    <h2>Your Details</h2>
+    <form id="yourDetailsForm">
+        <label for="name">Your Full Name *</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="organisation">Organisation *</label>
+        <input type="text" id="organisation" name="organisation" required>
+
+        <label for="email">Your Email Address *</label>
+        <input type="email" id="email" name="email" required>
+
+        <div class="btn-container">
+            <button type="button" onclick="goBack()">Back</button>
+            <button type="submit">Next</button>
+        </div>
+    </form>
+</div>
+
+<script src="script.js"></script>
+<script>
+    function goBack() {
+        window.location.href = "index.html"; // Back to Step 1
+    }
+
+    document.getElementById('yourDetailsForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Save to localStorage so next step can use it
+        localStorage.setItem('name', document.getElementById('name').value);
+        localStorage.setItem('organisation', document.getElementById('organisation').value);
+        localStorage.setItem('email', document.getElementById('email').value);
+
+        // Go to Step 3
+        window.location.href = "step3.html";
+    });
+</script>
+
+</body>
+</html>
