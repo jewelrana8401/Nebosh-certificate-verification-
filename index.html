@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBOSH Verification - Step 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo -->
+    <div class="logo">
+        <img src="assets/nebosh-logo.png" alt="nebosh logo">
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar">
+        <div class="step active">1 Disclaimer</div>
+        <div class="step">2 Your Details</div>
+        <div class="step">3 Learner Details</div>
+        <div class="step">4 Finished</div>
+    </div>
+
+    <!-- Disclaimer content -->
+    <h2>IMPORTANT, PLEASE READ BEFORE CONTINUING</h2>
+    <p>
+        NEBOSH takes the security of personal data and certificate credentials extremely seriously.
+        As part of the verification process, NEBOSH will email the learner that was originally issued this certificate to authenticate your request.
+    </p>
+    <p>
+        To allow the learner to identify who is requesting information relating to them, your name and organisation will be provided to the learner to allow them to authorise your request.
+    </p>
+    <p>
+        Your email address will be used by NEBOSH to confirm the outcome of your request within 2 working days of submission.
+    </p>
+    <p>
+        Please note: The outcome of this request will be recorded and held by NEBOSH for monitoring purposes. This includes your name, organisation and email address.
+    </p>
+
+    <!-- Checkbox -->
+    <label class="checkbox-container">
+        <input type="checkbox" id="agree">
+        I confirm I am happy for NEBOSH to store and use my details, as detailed above. This box must be ticked to proceed.
+    </label>
+
+    <!-- Navigation buttons -->
+    <div class="btn-container">
+        <button id="nextBtn" disabled onclick="goToStep2()">Next</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
